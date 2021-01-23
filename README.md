@@ -1,55 +1,54 @@
-# Victor Hugo
+# Victor Hugo Turbo
 
-**A Hugo boilerplate for creating truly epic websites**
+**A (forked) Hugo boilerplate for creating truly epic websites**
 
-This is a boilerplate for using [Hugo](https://gohugo.io/) as a static site generator and [Webpack](https://webpack.js.org/) as your asset pipeline.
+This is fork of Victor Hugo, a boilerplate for using [Hugo](https://gohugo.io/) as a static site generator and [Webpack](https://webpack.js.org/) as your asset pipeline.
 
 Victor Hugo setup to use [PostCSS](http://postcss.org/) and [Babel](https://babeljs.io/) for CSS and JavaScript compiling/transpiling.
 
-This project is released under the [MIT license](LICENSE). Please make sure you understand its implications and guarantees.
+Kind Systems has added Stimulus (https://stimulus.hotwire.dev/) and Turbo (https://turbo.hotwire.dev/) to support dynamic content with HTML over the wire without the weight of React or Gatsby.
 
+This project is released under the [MIT license](LICENSE). Please make sure you understand its implications and guarantees.
 ## Usage
 
 ### :exclamation: Prerequisites
 
-You need to have the latest/LTS [node](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) versions installed in order to use Victor Hugo.
-
 Next step, clone this repository and run:
 
 ```bash
-npm install
+yarn install
 ```
 
-This will take some time and will install all packages necessary to run Victor Hugo and its tasks.
+This will take some time and will install all packages necessary to run site and its tasks.
 
 ### :construction_worker: Development
 
 While developing your website, use:
 
 ```bash
-npm start
+yarn start
 ```
 
 or for developing your website with `hugo server --buildDrafts --buildFuture`, use:
 
 ```bash
-npm run preview
+yarn preview
 ```
 
-Then visit http://localhost:3000/ _- or a new browser windows popped-up already -_ to preview your new website. Webpack Dev Server will automatically reload the CSS or refresh the whole page, when stylesheets or content changes.
+Then visit http://localhost:3000/ _- or a new browser windows popped-up already -_ to preview your new website. Webpack Dev Server will automatically reload the SCSS/CSS/JS or refresh the whole page, when stylesheets or content changes.
 
 ### :package: Static build
 
 To build a static version of the website inside the `/dist` folder, run:
 
 ```bash
-npm run build
+yarn build
 ```
 
 To get a preview of posts or articles not yet published, run:
 
 ```bash
-npm run build:preview
+yarn build:preview
 ```
 
 See [package.json](package.json#L8) for all tasks.
@@ -82,6 +81,8 @@ https://gohugo.io/templates/functions/
 For assets that are completely static and don't need to go through the asset pipeline,
 use the `site/static` folder. Images, font-files, etc, all go there.
 
+Any images that you want run through webpack should be placed in the `./src/images` directory.
+
 Files in the static folder end up in the web root. So a file called `site/static/favicon.ico`
 will end up being available as `/favicon.ico` and so on...
 
@@ -94,7 +95,7 @@ minified to `/dist/[name].[hash:5].css`. Import statements will be resolved as p
 
 ## Environment variables
 
-To separate the development and production _- aka build -_ stages, all gulp tasks run with a node environment variable named either `development` or `production`.
+To separate the development and production _- aka build -_ stages, all tasks run with a node environment variable named either `development` or `production`.
 
 You can access the environment variable inside the theme files with `getenv "NODE_ENV"`. See the following example for a conditional statement:
 

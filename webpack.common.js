@@ -65,8 +65,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
       $: 'jquery',
-      jQuery: 'jquery',
-      Popper: ['popper.js', 'default']
+      jQuery: 'jquery'
     }),
 
     new AssetsPlugin({
